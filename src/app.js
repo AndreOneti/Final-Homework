@@ -16,6 +16,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set routs
-app.use('/', require('./router'));
+app.use('/api/v1/', require('./router'));
 
 module.exports = app;
