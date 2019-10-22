@@ -2,7 +2,6 @@
 
 module.exports = {
   GetRout(req, res, next) {
-    console.log("Na rota get - Default");
     res.status(200).json({
       title: "Node Rest API",
       version: "0.0.1",
@@ -11,7 +10,6 @@ module.exports = {
   },
 
   PostRout(req, res, next) {
-    console.log("Na rota post - Default");
     res.status(200).json({
       title: "Node Rest API",
       version: "0.0.1",
@@ -20,7 +18,6 @@ module.exports = {
   },
 
   PatchRout(req, res, next) {
-    console.log("Na rota put - Default");
     res.status(200).json({
       title: "Node Rest API",
       version: "0.0.1",
@@ -29,7 +26,6 @@ module.exports = {
   },
 
   DeleteRout(req, res, next) {
-    console.log("Na rota delete - Default");
     res.status(200).json({
       title: "Node Rest API",
       version: "0.0.1",
