@@ -3,12 +3,17 @@
 // Dependencies
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config({ path: ".env" });
 
 // Create server
 const app = express();
 
 // Disable  x powered
 app.disable('x-powered-by');
+
+// Mongoose conections
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middleware
 app.use(cors());
