@@ -13,7 +13,15 @@ const app = express();
 app.disable('x-powered-by');
 
 // Mongoose conections
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URL_DEPLOY, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// mongoose.connection.on('open', function (ref) {
+//   console.log('Connected to mongo server.');
+//   //trying to get collection names
+//   mongoose.connection.db.listCollections().toArray(function (err, names) {
+//     console.log(names);
+//   });
+// })
 
 // Middleware
 app.use(cors());

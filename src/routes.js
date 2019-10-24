@@ -8,5 +8,6 @@ const app = express()
 
 // Routs
 require('./components/default/router')(app);
+require('./components/user/router')(app);
 
 module.exports = app;

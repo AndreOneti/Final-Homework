@@ -8,6 +8,7 @@ module.exports = {
       method: "GET",
       API: [
         "/api/",
+        "/api/user",
       ]
     }).end();
   }
