@@ -45,7 +45,7 @@ module.exports = {
   },
   DeleteRout(req, res, next) {
     User
-      .findOneAndRemove({ name: req.params.id })
+      .deleteOne({ name: req.params.id })
       .then(data => {
         res.status(200).json({}).end();
       })
@@ -58,7 +58,7 @@ module.exports = {
   },
   PatchRout(req, res, next) {
     User
-      .findOneAndUpdate({ name: req.params.id }, req.body)
+      .updateOne({ name: req.params.id }, req.body)
       .then(data => {
         res.status(200).json({}).end();
       })
