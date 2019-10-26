@@ -8,7 +8,18 @@ const User = require('../model/index');
 
 module.exports = {
   GetRout(req, res, next) {
-    res.status(200).json({}).end();
+    User
+      .find()
+      .select('-__v -_id')
+      .then(data => {
+        res.status(200).json(data).end();
+      })
+      .catch(e => {
+        res.status(400).json({
+          message: "Error on find user",
+          data: e
+        }).end();
+      });
   },
   PostRout(req, res, next) {
     const user = new User({
