@@ -3,11 +3,8 @@
 // Dependencies import
 const { model } = require('mongoose');
 
-// Model schema
-require('../model/index');
-
-// Models import
-const User = model('user');
+// Model schema import
+const User = require('../model/index');
 
 module.exports = {
   GetRout(req, res, next) {
