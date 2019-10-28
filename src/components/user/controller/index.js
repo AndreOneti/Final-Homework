@@ -1,8 +1,5 @@
 'use strict';
 
-// Dependencies import
-const { model } = require('mongoose');
-
 // Model schema import
 const User = require('../model/index');
 

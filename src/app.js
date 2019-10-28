@@ -17,7 +17,13 @@ mongoose.connect(process.env.MONGO_URL_DEPLOY, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+})
+  .then(() => {
+    console.log('Database connected');
+  })
+  .catch(() => {
+    console.log('Error on connect');
+  });
 
 // Middleware
 app.use(cors());
