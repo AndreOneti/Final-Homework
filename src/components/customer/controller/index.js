@@ -7,7 +7,7 @@ module.exports = {
   GetRout(req, res, next) {
     Custumer
       .find()
-      .select('-__v -_id')
+      .select('-__v')
       .then(data => {
         res.status(200).json(data).end();
       })
@@ -27,7 +27,7 @@ module.exports = {
     customer
       .save()
       .then((result) => {
-        res.status(201).json({ message: "Custumer created!" }).end();
+        res.status(201).json(result).end();
       })
       .catch((err) => {
         res.status(409).json({ error: err }).end();
@@ -36,7 +36,7 @@ module.exports = {
   GetByIdRout(req, res, next) {
     Custumer
       .findOne({ name: req.params.id })
-      .select('-__v -_id')
+      .select('-__v')
       .then(data => {
         res.status(200).json(data).end();
       })

@@ -11,6 +11,7 @@ module.exports = {
         "/api/user",
         "/api/order",
         "/api/customer",
+        "/api/delivery",
       ]
     }).end();
   }

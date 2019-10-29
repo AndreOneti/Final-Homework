@@ -11,5 +11,6 @@ require('./components/default/router')(app);
 require('./components/user/router')(app);
 require('./components/customer/router')(app);
 require('./components/order/router')(app);
+require('./components/delivery/router')(app);
 
 module.exports = app;

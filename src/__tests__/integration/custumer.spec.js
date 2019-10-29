@@ -47,10 +47,11 @@ describe('Custumer Rout', () => {
   });
 
   it('should have customer equal send', async () => {
-    const mockCustomer = { name: 'Andre', email: "andreluiz@gea.inatel.br" };
+    const mockCustomer = { _id: 0, name: 'Andre', email: "andreluiz@gea.inatel.br" };
     const response = await request(app)
       .get('/api/customer/Andre')
       .set('Accept', 'application/json');
+    response.body._id = 0;
     expect(response.body).toStrictEqual(mockCustomer);
   });
 

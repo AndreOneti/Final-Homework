@@ -47,10 +47,11 @@ describe('Order Rout', () => {
   });
 
   it('should have order equal saved', async () => {
-    const mockOrder = { description: 'Mouse', quantity: 1, price: 14.95 };
+    const mockOrder = { _id: 0, description: 'Mouse', quantity: 1, price: 14.95 };
     const response = await request(app)
       .get('/api/order/Mouse')
       .set('Accept', 'application/json');
+    response.body._id = 0;
     expect(response.body).toStrictEqual(mockOrder);
   });
 

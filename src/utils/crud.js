@@ -15,7 +15,7 @@ module.exports = {
   readMany(req, res, next, Collection) {
     Collection
       .find()
-      .select('-__v -_id')
+      .select('-__v')
       .then(data => {
         console.log(data);
         res.status(200).json(data).end();

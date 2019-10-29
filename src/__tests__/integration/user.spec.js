@@ -51,10 +51,11 @@ describe('User Rout', () => {
   });
 
   it('should have user equal send', async () => {
-    const mockUser = { name: 'Andre', password: "123456", email: "andreluiz@gea.inatel.br" };
+    const mockUser = { _id: 0, name: 'Andre', password: "123456", email: "andreluiz@gea.inatel.br" };
     const response = await request(app)
       .get('/api/user/Andre')
       .set('Accept', 'application/json');
+    response.body._id = 0;
     expect(response.body).toStrictEqual(mockUser);
   });
 

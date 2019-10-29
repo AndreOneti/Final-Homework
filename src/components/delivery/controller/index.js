@@ -1,31 +1,29 @@
 'use strict';
 
 // Model schema import
-const User = require('../model/index');
+const Delivery = require('../model/index');
 
 module.exports = {
   GetRout(req, res, next) {
-    User
+    Delivery
       .find()
       .select('-__v')
+      .populate('orderId')
+      .populate('custumerId')
       .then(data => {
         res.status(200).json(data).end();
       })
       .catch(e => {
         res.status(400).json({
-          message: "Error on find user",
+          message: "Error on find delivery",
           data: e
         }).end();
       });
   },
   PostRout(req, res, next) {
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    });
+    const delivery = new Delivery(req.body);
 
-    user
+    delivery
       .save()
       .then((result) => {
         res.status(201).json(result).end();
@@ -35,41 +33,43 @@ module.exports = {
       });
   },
   GetByIdRout(req, res, next) {
-    User
-      .findOne({ name: req.params.id })
+    Delivery
+      .findOne({ recieveName: req.params.id })
       .select('-__v')
+      .populate('orderId')
+      .populate('custumerId')
       .then(data => {
         res.status(200).json(data).end();
       })
       .catch(e => {
         res.status(400).json({
-          message: "Error on find user",
+          message: "Error on find delivery",
           data: e
         }).end();
       });
   },
   DeleteRout(req, res, next) {
-    User
-      .deleteOne({ name: req.params.id })
+    Delivery
+      .deleteOne({ recieveName: req.params.id })
       .then(data => {
         res.status(200).json({}).end();
       })
       .catch(e => {
         res.status(404).json({
-          message: "Error on find user",
+          message: "Error on find delivery",
           data: e
         }).end();
       });
   },
   PatchRout(req, res, next) {
-    User
-      .updateOne({ name: req.params.id }, req.body)
+    Delivery
+      .updateOne({ recieveName: req.params.id }, req.body)
       .then(data => {
         res.status(200).json({}).end();
       })
       .catch(e => {
         res.status(404).json({
-          message: "Error on find user",
+          message: "Error on find delivery",
           data: e
         }).end();
       });
