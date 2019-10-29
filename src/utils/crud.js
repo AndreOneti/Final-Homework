@@ -4,6 +4,7 @@
  * use this import on cumponent to use crud
  * const { readMany, create } = require('../../../utils/crud');
  * each component create validators.
+ * on calling pass this parameter (req, res, next, Collection, CollectionName)
  */
 
 module.exports = {

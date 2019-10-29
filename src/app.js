@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 require('dotenv').config({ path: ".env" });
 
 // Create server
@@ -18,17 +19,18 @@ mongoose.connect(process.env.MONGO_URL_DEPLOY, {
   useUnifiedTopology: true,
   useCreateIndex: true,
 })
-  .then(() => {
-    console.log('Database connected');
-  })
-  .catch(() => {
-    console.log('Error on connect');
-  });
+  // .then(() => {
+  //   console.log('Database connected');
+  // })
+  // .catch(() => {
+  //   console.log('Error on connect');
+  // });
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(morgan('dev'));
 
 // Set routs
 app.use('/api/', require('./routes'));
