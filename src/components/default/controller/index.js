@@ -9,6 +9,7 @@ module.exports = {
       API: [
         "/api/",
         "/api/user",
+        "/api/order",
         "/api/customer",
       ]
     }).end();

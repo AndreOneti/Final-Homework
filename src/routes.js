@@ -10,5 +10,6 @@ const app = express()
 require('./components/default/router')(app);
 require('./components/user/router')(app);
 require('./components/customer/router')(app);
+require('./components/order/router')(app);
 
 module.exports = app;
