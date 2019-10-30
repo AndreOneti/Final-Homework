@@ -2,6 +2,7 @@
 
 // Model schema import
 const Custumer = require('../model/index');
+const CustumerValidator = require('../validators/index');
 
 module.exports = {
   GetRout(req, res, next) {
@@ -19,6 +20,17 @@ module.exports = {
       });
   },
   PostRout(req, res, next) {
+    let custumerValidator = new CustumerValidator();
+    custumerValidator.isEmail(req.body.email, 'Email inválid');
+    custumerValidator.isRequered(req.body.name, 'Name is required');
+    custumerValidator.isRequered(req.body.email, 'Email is required');
+
+    // Se os dados forem inválidos
+    if (!custumerValidator.isValid()) {
+      res.status(400).send(custumerValidator.errors()).end();
+      return;
+    }
+
     const customer = new Custumer({
       name: req.body.name,
       email: req.body.email
@@ -61,6 +73,15 @@ module.exports = {
       });
   },
   PatchRout(req, res, next) {
+    let custumerValidator = new CustumerValidator();
+    if (req.body.email) custumerValidator.isEmail(req.body.email, 'Email inválid');
+
+    // Se os dados forem inválidos
+    if (!custumerValidator.isValid()) {
+      res.status(400).send(userValidator.errors()).end();
+      return;
+    }
+
     Custumer
       .updateOne({ name: req.params.id }, req.body)
       .then(data => {

@@ -2,6 +2,7 @@
 
 // Model schema import
 const Delivery = require('../model/index');
+const DeliveryValidator = require('../validators/index');
 
 module.exports = {
   GetRout(req, res, next) {
@@ -21,6 +22,20 @@ module.exports = {
       });
   },
   PostRout(req, res, next) {
+    let deliveryValidator = new DeliveryValidator();
+    deliveryValidator.isRequered(req.body.recieveVatNumber, 'Price is required');
+    deliveryValidator.isRequered(req.body.orderId, 'Description is required');
+    deliveryValidator.isRequered(req.body.custumerId, 'Quantity is required');
+    deliveryValidator.isRequered(req.body.deliveryDate, 'Price is required');
+    deliveryValidator.isRequered(req.body.recieveName, 'Price is required');
+    deliveryValidator.isRequered(req.body.location, 'Price is required');
+
+    // Se os dados forem inválidos
+    if (!deliveryValidator.isValid()) {
+      res.status(400).send(deliveryValidator.errors()).end();
+      return;
+    }
+
     const delivery = new Delivery(req.body);
 
     delivery

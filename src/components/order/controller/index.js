@@ -2,6 +2,7 @@
 
 // Model schema import
 const Order = require('../model/index');
+const OrderValidator = require('../validators/index');
 
 module.exports = {
   GetRout(req, res, next) {
@@ -19,6 +20,17 @@ module.exports = {
       });
   },
   PostRout(req, res, next) {
+    let orderValidator = new OrderValidator();
+    orderValidator.isRequered(req.body.description, 'Description is required');
+    orderValidator.isRequered(req.body.quantity, 'Quantity is required');
+    orderValidator.isRequered(req.body.price, 'Price is required');
+
+    // Se os dados forem inválidos
+    if (!orderValidator.isValid()) {
+      res.status(400).send(orderValidator.errors()).end();
+      return;
+    }
+
     const order = new Order({
       description: req.body.description,
       quantity: req.body.quantity,

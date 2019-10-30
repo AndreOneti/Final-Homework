@@ -2,6 +2,7 @@
 
 // Model schema import
 const User = require('../model/index');
+const UserValidator = require('../validators/index');
 
 module.exports = {
   GetRout(req, res, next) {
@@ -19,6 +20,18 @@ module.exports = {
       });
   },
   PostRout(req, res, next) {
+    let userValidator = new UserValidator();
+    userValidator.isEmail(req.body.email, 'Email inválid');
+    userValidator.isRequered(req.body.name, 'Name is required');
+    userValidator.isRequered(req.body.email, 'Email is required');
+    userValidator.isRequered(req.body.password, 'Password is required');
+
+    // Se os dados forem inválidos
+    if (!userValidator.isValid()) {
+      res.status(400).send(userValidator.errors()).end();
+      return;
+    }
+
     const user = new User({
       name: req.body.name,
       email: req.body.email,
@@ -62,6 +75,15 @@ module.exports = {
       });
   },
   PatchRout(req, res, next) {
+    let userValidator = new UserValidator();
+    if (req.body.email) userValidator.isEmail(req.body.email, 'Email inválid');
+
+    // Se os dados forem inválidos
+    if (!userValidator.isValid()) {
+      res.status(400).send(userValidator.errors()).end();
+      return;
+    }
+
     User
       .updateOne({ name: req.params.id }, req.body)
       .then(data => {
