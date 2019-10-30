@@ -1,6 +1,6 @@
-# TODO.
+# TODO
 
-## O que fazer.
+## O que fazer
 
 - Obter e atualizar o status do pedido de uma determinada compra.
 
