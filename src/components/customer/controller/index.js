@@ -2,7 +2,7 @@
 
 // Model schema import
 const Custumer = require('../model/index');
-const CustumerValidator = require('../validators/index');
+const CustumerValidator = require('../validator/index');
 
 module.exports = {
   GetRout(req, res, next) {

@@ -2,7 +2,7 @@
 
 // Model schema import
 const Order = require('../model/index');
-const OrderValidator = require('../validators/index');
+const OrderValidator = require('../validator/index');
 
 module.exports = {
   GetRout(req, res, next) {

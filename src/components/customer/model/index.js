@@ -14,6 +14,8 @@ const schema = new Schema({
     trim: true,
     unique: true
   }
+}, {
+  timestamps: true
 });
 
 module.exports = model('customer', schema);

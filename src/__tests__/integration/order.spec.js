@@ -52,7 +52,11 @@ describe('Order Rout', () => {
       .get('/api/order/Mouse')
       .set('Accept', 'application/json');
     response.body._id = 0;
-    expect(response.body).toStrictEqual(mockOrder);
+    response.body.createdAt = null;
+    response.body.updatedAt = null;
+    mockOrder.createdAt = null;
+    mockOrder.updatedAt = null;
+    expect(response.body).toEqual(mockOrder);
   });
 
   it('should have "200" on update order', async () => {

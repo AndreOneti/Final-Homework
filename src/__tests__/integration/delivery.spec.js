@@ -45,13 +45,11 @@ describe('Delivery Rout', () => {
       isBuyer: true, deliveryDate: '30/10/2019-13:54:20',
       location: "Conceicao dos ouros - MG"
     };
-    setTimeout(async () => {
-      const response = await request(app)
-        .post('/api/delivery')
-        .set('Accept', 'application/json')
-        .send(mockDelivery)
-      expect(response.status).toBe(201);
-    }, 150);
+    const response = await request(app)
+      .post('/api/delivery')
+      .set('Accept', 'application/json')
+      .send(mockDelivery)
+    expect(response.status).toBe(201);
   });
 
   it('should have "200" on get delivery', async () => {

@@ -17,6 +17,8 @@ const schema = new Schema({
     type: Number,
     required: true
   }
+}, {
+  timestamps: true
 });
 
 module.exports = model('order', schema);

@@ -13,6 +13,7 @@ describe('User Rout', () => {
       useUnifiedTopology: true
     });
     db = await connection.db();
+    await db.collection('users').deleteMany({});
   });
 
   afterAll(async () => {
@@ -56,7 +57,11 @@ describe('User Rout', () => {
       .get('/api/user/Andre')
       .set('Accept', 'application/json');
     response.body._id = 0;
-    expect(response.body).toStrictEqual(mockUser);
+    response.body.createdAt = null;
+    response.body.updatedAt = null;
+    mockUser.createdAt = null;
+    mockUser.updatedAt = null;
+    expect(response.body).toEqual(mockUser);
   });
 
   it('should have "200" on update user', async () => {
