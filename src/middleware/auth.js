@@ -2,7 +2,7 @@ function auth(req, res, next) {
   if ('Basic MTIzOjEyMw==' === req.headers.authorization) {
     next();
   } else {
-    res.status(401).send('“You shall not pass” - White, Gandalf the').end();
+    res.status(401).send('“You Shall Not Pass!” - White, Gandalf the').end();
   }
 }
 
