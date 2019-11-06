@@ -8,6 +8,7 @@ const app = express()
 
 // Routs
 require('./components/default/router')(app);
+require('./middleware/handleRequest')(app);
 require('./components/user/router')(app);
 require('./middleware/auth')(app);
 require('./components/customer/router')(app);
