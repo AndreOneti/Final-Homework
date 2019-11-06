@@ -1,14 +1,18 @@
 'use strict'
 
 // Dependencies
-const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const morgan = require('morgan');
+const express = require('express');
+const mongoose = require('mongoose');
+const Sentry = require('@sentry/node');
 require('dotenv').config({ path: ".env" });
 
 // Create server
 const app = express();
+
+// Init Sentry
+Sentry.init({ dsn: process.env.SENTRY_CONNETION });
 
 // Disable  x powered
 app.disable('x-powered-by');
@@ -27,6 +31,7 @@ mongoose.connect(process.env.MONGO_URL_DEPLOY, {
   });
 
 // Middleware
+app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,5 +39,11 @@ app.use(morgan('dev'));
 
 // Set routs
 app.use('/api/', require('./routes'));
+
+app.get('/debug-sentry', function mainHandler(req, res) {
+  throw new Error('My first Sentry error!');
+});
+
+app.use(Sentry.Handlers.errorHandler());
 
 module.exports = app;
