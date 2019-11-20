@@ -12,7 +12,7 @@ require('dotenv').config({ path: ".env" });
 const app = express();
 
 // Init Sentry
-Sentry.init({ dsn: process.env.SENTRY_CONNETION });
+Sentry.init({ dsn: 'https://aa551894b43f45069cd82e51dcc02771@sentry.io/1809203' });
 
 // Disable  x powered
 app.disable('x-powered-by');
