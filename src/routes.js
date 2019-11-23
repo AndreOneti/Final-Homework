@@ -7,6 +7,7 @@ const express = require('express');
 const app = express()
 
 // Routs
+require('./components/status/router')(app);
 require('./components/default/router')(app);
 require('./middleware/handleRequest')(app);
 require('./components/user/router')(app);

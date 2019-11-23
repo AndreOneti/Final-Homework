@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Set routs
-app.use('/api/', require('./routes'));
+app.use('/', require('./routes'));
 
 app.get('/debug-sentry', function mainHandler(req, res) {
   throw new Error('My first Sentry error!');

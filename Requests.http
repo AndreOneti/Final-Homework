@@ -1,4 +1,4 @@
-GET /api/order HTTP/1.1
+GET /order HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==
 Host: localhost:3000
@@ -7,7 +7,7 @@ Host: localhost:3000
 
 #####
 
-GET /api/customer HTTP/1.1
+GET /customer HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==
 Host: localhost:3000
@@ -16,7 +16,7 @@ Host: localhost:3000
 
 #####
 
-GET /api/delivery HTTP/1.1
+GET /delivery HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==
 Host: localhost:3000
@@ -30,7 +30,7 @@ Host: localhost:3000
 
 #####
 
-GET /api/customer HTTP/1.1
+GET /customer HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==
 Host: localhost:3000
@@ -39,14 +39,14 @@ Host: localhost:3000
 
 #####
 
-GET /api/delivery HTTP/1.1
+GET /delivery HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==z
 Host: localhost:3000
 
 #####
 
-POST /api/user HTTP/1.1
+POST /user HTTP/1.1
 Content-Type: application/json
 Authorization: Basic MTIzOjEyMw==z
 Host: localhost:3000
@@ -55,12 +55,20 @@ Host: localhost:3000
 
 #####################################################################################
 
-GET /api/user HTTP/1.1
+GET /user HTTP/1.1
 Content-Type: application/json
 # Authorization: Basic MTIzOjEyMw==z
 Host: localhost:3000
 
 { "name": "Andre", "email": "andreluiz.onete@gea.inatel.br","password": "131294aloc" }
+
+#####################################################################################
+
+GET /status HTTP/1.1
+Content-Type: application/json
+# Authorization: Basic MTIzOjEyMw==z
+Host: localhost:3000
+
 
 ###
 

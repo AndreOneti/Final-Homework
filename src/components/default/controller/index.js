@@ -7,11 +7,11 @@ module.exports = {
       version: "1.0.0",
       method: "GET",
       API: [
-        "/api/",
-        "/api/user",
-        "/api/order",
-        "/api/customer",
-        "/api/delivery",
+        "/user",
+        "/order",
+        "/status",
+        "/customer",
+        "/delivery",
       ]
     }).end();
   }
