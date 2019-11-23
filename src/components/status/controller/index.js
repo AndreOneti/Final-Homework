@@ -5,7 +5,7 @@ module.exports = {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json({
       status: "Server up and running.",
-      up_time: `Server running for ${secondsToDhms(Math.floor(process.uptime()))}.`
+      up_time: `${secondsToDhms(Math.floor(process.uptime()))}.`
     }).end();
   }
 }
