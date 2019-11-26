@@ -2,7 +2,7 @@
 
 module.exports = {
   GetRout(req, res, next) {
-    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.status(200).json({
       status: "Server up and running.",
       up_time: `${secondsToDhms(Math.floor(process.uptime()))}.`

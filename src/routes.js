@@ -15,5 +15,6 @@ require('./middleware/auth')(app);
 require('./components/customer/router')(app);
 require('./components/order/router')(app);
 require('./components/delivery/router')(app);
+require('./middleware/notFound.js')(app);
 
 module.exports = app;

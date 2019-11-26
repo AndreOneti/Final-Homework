@@ -3,6 +3,7 @@
 // Dependencies
 const cors = require('cors');
 const morgan = require('morgan');
+const helmet = require('helmet');
 const express = require('express');
 const mongoose = require('mongoose');
 const Sentry = require('@sentry/node');
@@ -33,6 +34,7 @@ mongoose.connect(process.env.MONGO_URL_DEPLOY, {
 // Middleware
 app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
