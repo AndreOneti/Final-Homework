@@ -4,4 +4,4 @@ const { GetRout } = require('./controller/index');
 
 router.get('/', GetRout);
 
-module.exports = app => app.use('/', router);
+module.exports = (app) => app.use('/', router);

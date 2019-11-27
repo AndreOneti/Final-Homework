@@ -8,4 +8,4 @@ router.get('/:id', GetByIdRout);
 router.patch('/:id', PatchRout);
 router.delete('/:id', DeleteRout);
 
-module.exports = app => app.use('/user', router);
+module.exports = (app) => app.use('/user', router);

@@ -6,4 +6,4 @@ function passwordHash(req, res, next) {
   next()
 }
 
-module.exports = app => app.use(passwordHash);
+module.exports = (app) => app.use(passwordHash);

@@ -40,7 +40,7 @@ function auth(req, res, next) {
   User
     .findOne({ email })
     .select('-__v')
-    .then(data => {
+    .then((data) => {
       if (data.password === password) {
         next();
       } else if (data.password !== password) {
@@ -51,7 +51,7 @@ function auth(req, res, next) {
         return;
       }
     })
-    .catch(e => {
+    .catch((e) => {
       res.status(401).json({
         EfectMessage: '“You Shall Not Pass!” - White, Gandalf the',
         message: 'User Not Found'
@@ -60,4 +60,4 @@ function auth(req, res, next) {
     });
 }
 
-module.exports = app => app.use(auth);
+module.exports = (app) => app.use(auth);
