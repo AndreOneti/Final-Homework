@@ -2,6 +2,9 @@
 
 let errors = [];
 
+/**
+ *
+ */
 function ValidationContract() {
   errors = [];
 }

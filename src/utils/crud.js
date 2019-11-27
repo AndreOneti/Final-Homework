@@ -16,11 +16,11 @@ module.exports = {
     Collection
       .find()
       .select('-__v')
-      .then(data => {
+      .then((data) => {
         console.log(data);
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
         res.status(400).json({
           message: "Error on find user",
