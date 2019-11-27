@@ -9,10 +9,10 @@ module.exports = {
     Custumer
       .find()
       .select('-__v')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find customer",
           data: e
@@ -49,10 +49,10 @@ module.exports = {
     Custumer
       .findOne({ name: req.params.id })
       .select('-__v')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find custumer",
           data: e
@@ -62,10 +62,10 @@ module.exports = {
   DeleteRout(req, res, next) {
     Custumer
       .deleteOne({ name: req.params.id })
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find custumer",
           data: e
@@ -84,10 +84,10 @@ module.exports = {
 
     Custumer
       .updateOne({ name: req.params.id }, req.body)
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find custumer",
           data: e

@@ -7,8 +7,9 @@ function ValidationContract() {
 }
 
 ValidationContract.prototype.isRequered = (value, message) => {
-  if (!value || value.length <= 0)
+  if (!value || value.length <= 0) {
     errors.push({ message: message });
+  }
 }
 
 ValidationContract.prototype.errors = () => {

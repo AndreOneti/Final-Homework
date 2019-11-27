@@ -11,10 +11,10 @@ module.exports = {
       .select('-__v')
       .populate('orderId')
       .populate('custumerId')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find delivery",
           data: e
@@ -53,10 +53,10 @@ module.exports = {
       .select('-__v')
       .populate('orderId')
       .populate('custumerId')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find delivery",
           data: e
@@ -66,10 +66,10 @@ module.exports = {
   DeleteRout(req, res, next) {
     Delivery
       .deleteOne({ recieveName: req.params.id })
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find delivery",
           data: e
@@ -79,10 +79,10 @@ module.exports = {
   PatchRout(req, res, next) {
     Delivery
       .updateOne({ recieveName: req.params.id }, req.body)
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find delivery",
           data: e

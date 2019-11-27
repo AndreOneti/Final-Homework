@@ -9,10 +9,10 @@ module.exports = {
     Order
       .find()
       .select('-__v')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find order",
           data: e
@@ -50,10 +50,10 @@ module.exports = {
     Order
       .findOne({ description: req.params.id })
       .select('-__v')
-      .then(data => {
+      .then((data) => {
         res.status(200).json(data).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(400).json({
           message: "Error on find order",
           data: e
@@ -63,10 +63,10 @@ module.exports = {
   DeleteRout(req, res, next) {
     Order
       .deleteOne({ description: req.params.id })
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find order",
           data: e
@@ -76,10 +76,10 @@ module.exports = {
   PatchRout(req, res, next) {
     Order
       .updateOne({ description: req.params.id }, req.body)
-      .then(data => {
+      .then((data) => {
         res.status(200).json({}).end();
       })
-      .catch(e => {
+      .catch((e) => {
         res.status(404).json({
           message: "Error on find order",
           data: e
