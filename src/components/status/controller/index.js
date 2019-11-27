@@ -10,6 +10,9 @@ module.exports = {
   }
 }
 
+/**
+ *
+ */
 function secondsToDhms(seconds) {
   seconds = Number(seconds);
   var d = Math.floor(seconds / (3600 * 24));

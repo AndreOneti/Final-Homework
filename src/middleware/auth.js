@@ -2,6 +2,9 @@ const User = require('../components/user/model/index');
 const validator = require('../components/user/validator/index');
 const md5 = require('md5');
 
+/**
+ *
+ */
 function auth(req, res, next) {
 
   if (!req.headers.authorization) {
