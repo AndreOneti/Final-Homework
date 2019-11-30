@@ -63,4 +63,5 @@ function auth(req, res, next) {
     });
 }
 
-module.exports = (app) => app.use(auth);
+// module.exports = (app) => app.use(auth);
+module.exports = auth;

@@ -49,7 +49,7 @@ module.exports = {
   },
   GetByIdRout(req, res, next) {
     User
-      .findOne({ name: req.params.id })
+      .findOne({ _id: req.params.id })
       .select('-__v')
       .then((data) => {
         res.status(200).json(data).end();

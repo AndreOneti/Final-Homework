@@ -49,7 +49,7 @@ module.exports = {
   },
   GetByIdRout(req, res, next) {
     Delivery
-      .findOne({ recieveName: req.params.id })
+      .findOne({ _id: req.params.id })
       .select('-__v')
       .populate('orderId')
       .populate('custumerId')
