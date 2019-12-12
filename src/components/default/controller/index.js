@@ -12,7 +12,11 @@ module.exports = {
         "/status",
         "/customer",
         "/delivery",
-      ]
+      ],
+      others: {
+        url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+        message: `Route to ${req.method} ${req.originalUrl} not found`
+      }
     }).end();
   }
 }
